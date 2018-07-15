@@ -1,0 +1,47 @@
+Steps:
+
+
+1 run app.py file --   python app.py
+
+
+			USER RESOURCES
+
+
+routres for different resources on postman
+-------------------------------------------------------
+1) http://127.0.0.1:5000/register
+	POST
+	json data username, password, organisation_name and website_url 
+	wil create a new user 
+  first user will become ADMIN and will have previlage to delete a user.
+
+-------------------------------------------------------
+2) http://127.0.0.1:5000/login
+	POST
+	json data username and password 
+	will login the user if exists and will return access_token.
+
+-------------------------------------------------------
+3) http://127.0.0.1:5000/user/<row_id>
+	GET
+	will return a user with respective id if exists else does not exist.
+-------------------------------------------------------
+
+Bearer token required of Admin only
+4) http://127.0.0.1:5000/user/<row_id>
+	DELETE
+	will delete a perticular user.
+-------------------------------------------------------
+
+Beare token required of that user
+5) http://127.0.0.1:5000/logout
+	POST
+	will lougout the user.
+-------------------------------------------------------
+
+Bearer token required
+6) localhost:5000/subscribe/<row_id>
+	PUT
+	will change the subscribe status of user
+
+-------------------------------------------------------
