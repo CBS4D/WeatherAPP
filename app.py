@@ -5,6 +5,7 @@ from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from crontab import CronTab
+# from celery import Celery
 
 from db import db
 from blacklist import BLACKLIST
@@ -21,6 +22,12 @@ app.config['JWT_BLACKLIST_ENABLED'] = True
 # allow blacklisting for access and refresh tokens
 app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
 # could do app.config['JWT_SECRET_KEY']
+
+# app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+# app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+# _celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+# _celery.conf.update(app.config)
+
 app.secret_key = 'developer'
 api = Api(app)
 
